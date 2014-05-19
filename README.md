@@ -33,3 +33,16 @@ Usage: <main class> [options]
 
 * authorizationServiceUrl - authorization service WSDL URL
 * ejbcaServiceUrl - EJBCA service WSDL URL
+
+#### example:
+
+```
+<authorizationServiceUrl>https://vps59351.ovh.net:8443/pkiservice/AuthorizationService?wsdl</authorizationServiceUrl>
+<ejbcaServiceUrl>https://vps59351.ovh.net:8443/pkiservice/EJBCAService?wsdl</ejbcaServiceUrl>
+```
+
+```
+cli.bat --mode "register" --cn "test" --email "tomeksamcik@tlen.pl" --phone 501973096
+cli.bat --mode "enroll" --cn "test" --challenge "twjPoVlB" --pkcs12-file "test.p12"
+openssl pkcs12 -in cert.p12 -info
+```
