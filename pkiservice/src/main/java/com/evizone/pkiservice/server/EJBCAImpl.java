@@ -20,7 +20,6 @@ import javax.jws.soap.SOAPBinding.Use;
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
 import javax.security.auth.callback.UnsupportedCallbackException;
-import javax.ws.rs.Path;
 import javax.xml.ws.Holder;
 
 import net.samcik.java.io.HttpConnection;
@@ -37,7 +36,6 @@ import com.evizone.pkiservice.util.CertUtil;
 import com.evizone.pkiservice.util.KeyManager;
 import com.evizone.pkiservice.util.SqlUtil;
 
-@Path("ca")
 @WebService(endpointInterface = "com.evizone.pkiservice.server.EJBCA",
             targetNamespace = "http://pkiservice.evizone.com/",
             name = "EJBCA",
@@ -97,13 +95,15 @@ public class EJBCAImpl implements EJBCA {
 	@Override
 	public byte[] enrollAndGetCert(EJBCAEnrollAndGetCertInput input,
 			@WebParam(header = true, mode = Mode.OUT) Holder<String> headerParam) {
+		/*
+		 * DN for simplicity only includes CN
+		 */
 		String dn = "CN=" + input.getCn();
-		String filename = input.getCn() + ".pem";
-    	System.out.println("cn=" + input.getCn());
+
+		System.out.println("cn=" + input.getCn());
     	System.out.println("dn=" + dn);
     	System.out.println("challenge=" + input.getChallenge());
     	
-    	headerParam.value = "content-disposition: attachment; filename='" + filename + "'";
     	byte[] out = null;
     	try {
 	        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
