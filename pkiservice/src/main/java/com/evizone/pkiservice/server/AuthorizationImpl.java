@@ -170,7 +170,7 @@ public class AuthorizationImpl implements Authorization {
 		    Session mailSession = Session.getDefaultInstance(props, 
 		    	new javax.mail.Authenticator() {
 					protected PasswordAuthentication getPasswordAuthentication() {
-						return new PasswordAuthentication("tomeksamcik@gmail.com","as0rtsao");
+						return new PasswordAuthentication("tomeksamcik@gmail.com","password");
 					}
 				});
 			*/                        
