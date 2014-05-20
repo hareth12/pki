@@ -202,7 +202,7 @@ public class CertUtil {
 	
 	        PKCS12SafeBagBuilder eeCertBagBuilder = new JcaPKCS12SafeBagBuilder(cert);
 	
-	        eeCertBagBuilder.addBagAttribute(PKCSObjectIdentifiers.pkcs_9_at_friendlyName, new DERBMPString(cn + "'s Key"));
+	        eeCertBagBuilder.addBagAttribute(PKCSObjectIdentifiers.pkcs_9_at_friendlyName, new DERBMPString(cn + "'s Signed Certificate"));
 	        eeCertBagBuilder.addBagAttribute(PKCSObjectIdentifiers.pkcs_9_at_localKeyId, extUtils.createSubjectKeyIdentifier(cert.getPublicKey()));
 	
 	        PKCS12SafeBagBuilder keyBagBuilder = new JcaPKCS12SafeBagBuilder(privKey, 
@@ -210,7 +210,7 @@ public class CertUtil {
 	        		new CBCBlockCipher(new DESedeEngine())).build(
 	        			password.toCharArray()));
 	
-	        keyBagBuilder.addBagAttribute(PKCSObjectIdentifiers.pkcs_9_at_friendlyName, new DERBMPString("Eric's Key"));
+	        keyBagBuilder.addBagAttribute(PKCSObjectIdentifiers.pkcs_9_at_friendlyName, new DERBMPString(cn + "'s Public Key"));
 	        keyBagBuilder.addBagAttribute(PKCSObjectIdentifiers.pkcs_9_at_localKeyId, extUtils.createSubjectKeyIdentifier(cert.getPublicKey()));
 	
 	        PKCS12PfxPduBuilder pfxPduBuilder = new PKCS12PfxPduBuilder();

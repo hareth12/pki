@@ -158,6 +158,7 @@ public class AuthorizationImpl implements Authorization {
         	/*
         	 * Jboss7 does not allow properties configuration in mail-service
         	 */
+        	/*
         	Properties props = new Properties();
 		    props.put("mail.transport.protocol", "smtp");
 		    props.put("mail.host", "smtp.gmail.com");
@@ -171,8 +172,9 @@ public class AuthorizationImpl implements Authorization {
 					protected PasswordAuthentication getPasswordAuthentication() {
 						return new PasswordAuthentication("tomeksamcik@gmail.com","as0rtsao");
 					}
-				});                        
-        	//Session mailSession = getJNDIMailSession();
+				});
+			*/                        
+        	Session mailSession = getJNDIMailSession();
 		    
             MimeMessage m = new MimeMessage(mailSession);
             Address from = new InternetAddress("authorization_service@evizone.com");
