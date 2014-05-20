@@ -42,7 +42,7 @@ Usage: <main class> [options]
 ```
 
 ```
-cli.bat --mode "register" --cn "test" --email "tomeksamcik@tlen.pl" --phone 501973096
-cli.bat --mode "enroll" --cn "test" --challenge "twjPoVlB" --pkcs12-file "test.p12"
+cli.bat --mode register --cn test --email tomeksamcik@tlen.pl --phone 501973096
+cli.bat --mode enroll --cn test --challenge twjPoVlB --pkcs12-file test.p12
 openssl pkcs12 -in cert.p12 -info
 ```
