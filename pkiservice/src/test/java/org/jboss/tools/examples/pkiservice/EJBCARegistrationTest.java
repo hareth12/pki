@@ -9,7 +9,6 @@ import net.samcik.java.utils.UserAgent.Response;
 
 public class EJBCARegistrationTest {
 	
-	
 	private static String REGISTRATION_URL = "http://vps59351.ovh.net:8080/ejbca/enrol/reg_submit.jsp";
 	private static String RESPONSE_REGEXP = "<h1 class=\"title\">Request Registration</h1>\\s+<p>(.*?)</p>";	
 	

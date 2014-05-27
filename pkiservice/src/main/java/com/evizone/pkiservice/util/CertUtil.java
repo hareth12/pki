@@ -210,7 +210,7 @@ public class CertUtil {
 	        		new CBCBlockCipher(new DESedeEngine())).build(
 	        			password.toCharArray()));
 	
-	        keyBagBuilder.addBagAttribute(PKCSObjectIdentifiers.pkcs_9_at_friendlyName, new DERBMPString(cn + "'s Public Key"));
+	        keyBagBuilder.addBagAttribute(PKCSObjectIdentifiers.pkcs_9_at_friendlyName, new DERBMPString(cn + "'s Private Key"));
 	        keyBagBuilder.addBagAttribute(PKCSObjectIdentifiers.pkcs_9_at_localKeyId, extUtils.createSubjectKeyIdentifier(cert.getPublicKey()));
 	
 	        PKCS12PfxPduBuilder pfxPduBuilder = new PKCS12PfxPduBuilder();

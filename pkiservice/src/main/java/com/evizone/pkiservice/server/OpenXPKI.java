@@ -7,31 +7,31 @@ public interface OpenXPKI {
 	
     /**
      * Enrolls CSR 
-     * @param cn User common name
-     * @param dn Subject DN to request (in the example profile defined as CN=<cn>)
-     * @param url URL of SCEP service
-     * @param challenge Password to include in CSR
+     * @param input Input including:
+     * - dn Subject DN to request (in the example profile defined as CN=<cn>)
+     * - url URL of SCEP service
+     * - challenge Password to include in CSR
      * @return Transaction ID
      */
-    String enroll(String cn, String dn, String url, String challenge);
+    String enroll(OpenXPKIEnrollInput input);
 
     /**
      * Polls status of CSR request and retreives cert to local store if available 
-     * @param cn User common name
-     * @param url URL of SCEP service
-     * @param transactionID Transaction ID
+     * @param input Input including:
+     * - cn User common name
+     * - oneTimePassword User one-time-password
      * @return Status message
      */
-    CSRStatus poll(String cn, String url, String transactionID);
+    CSRStatus poll(OpenXPKIPollInput input);
 
     /**
      * Retreives certificate from local store 
-     * @param cn User common name
-     * @param url URL of SCEP service
-     * @param transactionID Transaction ID
-     * @return Status message
+     * @param input Input including:
+     * - cn User common name
+     * - oneTimePassword User one-time-password
+     * @return Byte array containing pkcs#12 file
      */
-    byte[] download(String cn, String url, String transactionID);
+    byte[] download(OpenXPKIPollInput input);
     
 }
 

@@ -9,10 +9,8 @@
   <properties>
 	  <ejbcaRegistrationUrl>http://vps59351.ovh.net:8080/ejbca/enrol/reg_submit.jsp</ejbcaRegistrationUrl>
 	  <ejbcaScepUrl>http://vps59351.ovh.net:8080/ejbca/publicweb/apply/scep/pkiclient.exe</ejbcaScepUrl>
-	  <mailContext>java:jboss/mail/Default</mailContext>
+	  <openxpkiScepUrl>http://vps59351.ovh.net/scep/pkiclient.exe</openxpkiScepUrl>
 	  <datasourceContext>java:jboss/datasources/MysqlIdpDB</datasourceContext>	  
-	  <smsapiLogin>tomeksamcik@tlen.pl</smsapiLogin>
-	  <smsapiPassword>d2bd4e825c8b0059d505b61acaa90a38</smsapiPassword>
 	  <caIdentifier>ManagementCA</caIdentifier>
 	  <keySize>2048</keySize>
   </properties>
@@ -112,7 +110,7 @@
   </pluginRepositories>
   <build>
 	<resources>
-	  <resource>
+	  <resource>	  
 	    <directory>src/main/extra-resources</directory>
 	  </resource>
 	</resources>                              

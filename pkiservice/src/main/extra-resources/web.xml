@@ -6,31 +6,21 @@
 	<description>
 		Authorization Service
 	</description>
-	
+		
     <env-entry>
       <env-entry-name>ejbcaRegistrationUrl</env-entry-name>
       <env-entry-type>java.lang.String</env-entry-type>
       <env-entry-value>${ejbcaRegistrationUrl}</env-entry-value>
     </env-entry>	
     <env-entry>
+      <env-entry-name>openxpkiScepUrl</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>${openxpkiScepUrl}</env-entry-value>
+    </env-entry>	
+    <env-entry>
       <env-entry-name>ejbcaScepUrl</env-entry-name>
       <env-entry-type>java.lang.String</env-entry-type>
       <env-entry-value>${ejbcaScepUrl}</env-entry-value>
-    </env-entry>	
-    <env-entry>
-      <env-entry-name>mailContext</env-entry-name>
-      <env-entry-type>java.lang.String</env-entry-type>
-      <env-entry-value>${mailContext}</env-entry-value>
-    </env-entry>	
-    <env-entry>
-      <env-entry-name>smsapiLogin</env-entry-name>
-      <env-entry-type>java.lang.String</env-entry-type>
-      <env-entry-value>${smsapiLogin}</env-entry-value>
-    </env-entry>	
-    <env-entry>
-      <env-entry-name>smsapiPassword</env-entry-name>
-      <env-entry-type>java.lang.String</env-entry-type>
-      <env-entry-value>${smsapiPassword}</env-entry-value>
     </env-entry>	
     <env-entry>
       <env-entry-name>caIdentifier</env-entry-name>
