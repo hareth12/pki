@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>Authorization Service</display-name>
+	<description>
+		Authorization Service
+	</description>
+	
+    <env-entry>
+      <env-entry-name>openxpkiServiceUrl</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>${openxpkiServiceUrl}</env-entry-value>
+    </env-entry>	
+    <env-entry>
+      <env-entry-name>ejbcaRegistrationUrl</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>${ejbcaRegistrationUrl}</env-entry-value>
+    </env-entry>	
+    <env-entry>
+      <env-entry-name>mailContext</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>${mailContext}</env-entry-value>
+    </env-entry>	
+    <env-entry>
+      <env-entry-name>smsapiLogin</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>${smsapiLogin}</env-entry-value>
+    </env-entry>	
+    <env-entry>
+      <env-entry-name>smsapiPassword</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>${smsapiPassword}</env-entry-value>
+    </env-entry>	
+    <env-entry>
+      <env-entry-name>datasourceContext</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>${datasourceContext}</env-entry-value>
+    </env-entry>    
+
+	<!-- Define a Security Constraint on this Application -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>EMPLOYEE Application</web-resource-name>
+			<url-pattern>/auth/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>user</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<!-- Define the Login Configuration for this Application -->
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+
+	<!-- Security roles referenced by this web application -->
+	<security-role>
+		<role-name>user</role-name>
+	</security-role>
+</web-app>
