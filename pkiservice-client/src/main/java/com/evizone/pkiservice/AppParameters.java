@@ -6,6 +6,7 @@ package com.evizone.pkiservice;
 
 import com.beust.jcommander.Parameter;
 import com.evizone.pkiservice.CLI.Mode;
+import com.evizone.pkiservice.CLI.Provider;
 
 /**
  *
@@ -16,10 +17,13 @@ public class AppParameters {
 	@Parameter(names = "--cn", description = "Subject CN to request", required = true)
     private String cn;
 
-    @Parameter(names = "--challenge", description = "Challenge password (EJBCA entity password) (required when enroll)")
+    @Parameter(names = "--challenge", description = "Challenge password (EJBCA entity password) (required when enroll to EJBCA)")
     private String challenge;
 
-    @Parameter(names = "--pkcs12-file", description = "PKCS#12 output file")
+    @Parameter(names = "--password", description = "One-time-password (required when poll/download from OpenXPKI)")
+    private String password;
+    
+	@Parameter(names = "--pkcs12-file", description = "PKCS#12 output file")
     private String pkcs12File = "cert.p12";
     
     @Parameter(names = "--email", description = "User email address to send confirmation emails to (required when register)")
@@ -28,8 +32,19 @@ public class AppParameters {
     @Parameter(names = "--phone", description = "User phone number to send PIN to (required when register)")
     private Integer phoneNo;
 
-    @Parameter(names = "--mode", description = "Mode (register/enroll)", required = true)
+    @Parameter(names = "--mode", description = "Mode (register/fetch/poll), poll only available for OpenXPKI", required = true)
     private Mode mode;    
+
+    @Parameter(names = "--provider", description = "Provider (ejbca/openxpki)", required = true)
+    private Provider provider;    
+    
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
 
 	public String getCn() {
 		return cn;
@@ -79,4 +94,12 @@ public class AppParameters {
 		this.mode = mode;
 	}
 
+    public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 }
