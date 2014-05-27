@@ -4,7 +4,7 @@
   <artifactId>pkiservice-client</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
-    <authorizationServiceUrl>http://vps59351.ovh.net:8080/authservice/AuthorizationService?wsdl</authorizationServiceUrl>
+    <authServiceUrl>http://vps59351.ovh.net:8080/authservice/AuthorizationService?wsdl</authServiceUrl>
     <ejbcaServiceUrl>http://vps59351.ovh.net:8080/pkiservice/EJBCAService?wsdl</ejbcaServiceUrl>
     <openxpkiServiceUrl>http://vps59351.ovh.net:8080/pkiservice/OpenXPKIService?wsdl</openxpkiServiceUrl>
   </properties>

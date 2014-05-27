@@ -188,6 +188,7 @@ public class CLI {
             	jcmd.usage();
             }
         } catch (ParameterException e) {
+        	System.out.println(e.getMessage());            	
             jcmd.usage();
         }
 		

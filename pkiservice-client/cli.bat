@@ -1,1 +1,12 @@
-java -jar target/pkiservice-client-0.0.1-SNAPSHOT-jar-with-dependencies.jar %1 %2 %3 %4 %5 %6 %7 %8
+@echo off
+set RESTVAR=
+:loop1
+if "%1"=="" goto after_loop
+set RESTVAR=%RESTVAR% %1
+shift
+goto loop1
+
+:after_loop
+echo %RESTVAR%
+
+java -jar target/pkiservice-client-0.0.1-SNAPSHOT-jar-with-dependencies.jar %RESTVAR%

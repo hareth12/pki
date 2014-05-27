@@ -17,7 +17,7 @@ public class AppParameters {
 	@Parameter(names = "--cn", description = "Subject CN to request", required = true)
     private String cn;
 
-    @Parameter(names = "--challenge", description = "Challenge password (EJBCA entity password) (required when enroll to EJBCA)")
+    @Parameter(names = "--challenge", description = "Challenge password (EJBCA entity password) (required when enrolling to EJBCA)")
     private String challenge;
 
     @Parameter(names = "--password", description = "One-time-password (required when poll/download from OpenXPKI)")
