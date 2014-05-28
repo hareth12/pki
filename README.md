@@ -59,7 +59,9 @@ cli.bat --mode register --provider ejbca --cn test --email tomeksamcik@tlen.pl -
 #Approve self-registered user (Add End Entity)
 cli.bat --mode fetch --provider ejbca --cn test --challenge twjPoVlB --pkcs12-file test.p12
 openssl pkcs12 -in cert.p12 -info
+```
 
+```
 cli.bat --mode register --provider openxpki --cn test --email tomeksamcik@tlen.pl --phone 501973096
 #Approve Certificate Signing Request
 cli.bat --mode poll --provider openxpki --cn test --password twjPoVlB
